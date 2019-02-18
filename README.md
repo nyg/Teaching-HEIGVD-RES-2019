@@ -10,7 +10,7 @@ This is where you will find lecture notes, slides and some of the examples prese
   - setup maven and been able to build "chill" on the command line
   - setup IDEA (with Lombok project)
   - either successfully added one beer (with a unit test and a production class) and submitted a PR or filed an issue in the upstream server to precisely describe what has not worked
-- **Sunday, February 3rd, 23:00 (strict): everybody must have**:
+- **Sunday, March 3rd, 23:00 (strict): everybody must have**:
   - added at least 3 beers, with tests, and submitted at least 3 PRs (with a green light on GitHub)
   - added enough beers and submitted enough PRs to really master the GitHub workflow
   - be able to explain what is maven and how to run it from the command line
