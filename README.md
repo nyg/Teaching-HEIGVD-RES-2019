@@ -27,9 +27,9 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Week 2: Java IO part 1 (intro + buffered IOs)
 
-- Here are the slides
+- [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/01-JavaIOs.pdf) are the slides
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/lectures/01-Lecture1-JavaIOs.md) are the lecture notes
-- Here is the project used to present the impact of buffering on performance
+- [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/01-BufferedIOBenchmark/BufferedIOBenchmark) is the project used to present the impact of buffering on performance
 
 ## Week 3
 
