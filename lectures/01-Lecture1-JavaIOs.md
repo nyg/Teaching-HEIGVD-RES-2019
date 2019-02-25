@@ -38,11 +38,9 @@ More specifically, here are the objectives of the lecture:
 
 * Understand that the `BufferedReader`, `BufferedWriter`, `BufferedInputStream` and `BufferedOutputStream` classes use this mechanism. You should be able to explain how buffered IOs work and why they are important from a **performance** point of view.
 
-
 **Note**: in this course, we only consider the **standard Java IO API**. For specific needs and in particular when writing scalable network servers, another API is available. This API has been named the New IO API, generally referred to as the NIO API.
 
 ## <a name="Lecture"></a>Lecture
-
 
 ### <a name="UniversalAPI"></a>1. A Universal API
 
@@ -59,7 +57,6 @@ In any programming language, dealing with IOs means **dealing with an exchange o
 Instead of having a different API, in other words different abstractions, classes and methods, for each of these situations, you can use the Java IO as a generic, universal API to solve all your data transfer needs. 
 
 > At the end of the day, whether you are "talking" to a file, to a network endpoint or to a process does not matter. You are always doing the same thing: reading and/or writing bytes or characters. The Java IO API is the toolbox that you need for that purpose.
-
 
 ### <a name="SourcesSinksAndStreams"></a>2. Sources, Sinks and Streams
 
@@ -97,7 +94,6 @@ Similarly, when your program wants to write data from a source, it will:
 
 4. **Close the stream**, by using the `close()` method defined in the `OutputStream` class. 
 
-
 #### 2.3. Design Your Code to Be Universal
 
 When you design your own classes and methods, make sure that you keep the spirit of the Universal API. As a rule of thumb, **pass streams and not sources as method parameters**. Compare the following two methods:
@@ -125,7 +121,6 @@ public interface INicelyDesignedService {
 }
 ```
 
-
 ### <a name="FileDuplicator"></a>3. A Simple Example: The File Duplicator
 
 To illustrate these basic concepts, let us consider a very simple example. The code below shows that we have implemented a class named `FileDuplicator`. Its responsibility should be easy to guess from his name. It provides a method that, when invoked by a client, copies the content of a file into another file.
@@ -150,14 +145,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-/**
- *
- * @author Olivier Liechti
- */
+/** @author Olivier Liechti */
 public class FileDuplicator {
 		
 	public void duplicate(String inputFileName, String outputFileName) throws IOException {
-
 	    // This is my data source
 		File inputFile = new File(inputFileName);
 		
@@ -179,11 +170,8 @@ public class FileDuplicator {
 		fis.close();
 		fos.close();
 	}
-	
 }
 ```
-
-
 
 ### <a name="BinaryVsCharacterIOs"></a>4. Binary- vs Character-Oriented IOs
 
@@ -279,7 +267,6 @@ When dealing with IOs, you will be interacting with external systems and compone
 
 One important thing that you will have to do, is to **close the streams when you are done reading or writing data**. Since errors can happen while you are working with the stream, make sure that you close the streams in the `finally` clause. Check the **additional resources** list for two interesting links on that topic.
 
-
 ## <a name="Resources"></a>Resources</a>
 
 ### <a name="ResourcesMustRead"></a>MUST read
@@ -301,7 +288,6 @@ One important thing that you will have to do, is to **close the streams when you
 * Two articles about IO Exception handling and related design guidelines: <http://tutorials.jenkov.com/java-io/io-exception-handling.html> and <http://tutorials.jenkov.com/java-exception-handling/exception-handling-templates.html>.
 
 * A list of supported character encodings for Java SE 7: <http://docs.oracle.com/javase/7/docs/technotes/guides/intl/encoding.doc.html>
-
 
 ## <a name="Exam"></a>What Should I Know For The Test and The Exam?
 
