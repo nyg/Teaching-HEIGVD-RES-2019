@@ -16,10 +16,6 @@
    2. [Additional Resources](#ResourcesAdditional)
 4. [What Should I Know For The Test And The Exam?](#Exam)
 
-
-[![](images/01/io.jpg)](http://www.flickr.com/photos/bobbyzero/2300986336/)
-
-
 ## <a name="Objectives"></a>Objectives
 
 The goal of this lecture is to give an **overview of IO programming in Java** and to see how classes in the `java.io` package can be used to read and write files. 
@@ -50,8 +46,6 @@ More specifically, here are the objectives of the lecture:
 
 ### <a name="UniversalAPI"></a>1. A Universal API
 
-[![](images/01/plugs.jpg)](http://www.flickr.com/photos/wikidave/7282386798/)
-
 In any programming language, dealing with IOs means **dealing with an exchange of data**. This can mean different things, for example:
 
 * you want to read configuration data from a **file**
@@ -81,8 +75,6 @@ If you think about it, every situation where you need to deal with IOs can be de
 
 #### 2.1. Reading Data From a Source
 
-[![](images/01/robinet.jpg)](http://www.flickr.com/photos/chagiajose/5382140863/)
-
 Concretely, when your program wants to read data from a source, it will:
 
 1. **Get access to a source.** This will depend on the type of source you are using, but for instance you may use the `File` class to access a file in the local file system or the `Socket` class to access a network endpoint.
@@ -94,8 +86,6 @@ Concretely, when your program wants to read data from a source, it will:
 4. **Close the stream**, by using the `close()` method defined in the `InputStream` class. 
 
 #### 2.2. Writing Data To a Sink
-
-[![](images/01/sink.jpg)](http://www.flickr.com/photos/58271172@N00/3115329519/)
 
 Similarly, when your program wants to write data from a source, it will:
 
@@ -112,7 +102,7 @@ Similarly, when your program wants to write data from a source, it will:
 
 When you design your own classes and methods, make sure that you keep the spirit of the Universal API. As a rule of thumb, **pass streams and not sources as method parameters**. Compare the following two methods:
 
-```
+```java
 /**
  * This interface will work only for data sources on the file system. In the
  * method implementation, I would need to create a FileInputStream from f and
@@ -123,7 +113,7 @@ When you design your own classes and methods, make sure that you keep the spirit
 }
 ```
 
-```
+```java
 /**
  * This interface is much better. The client using the service has a bit more
  * responsibility (and work). It is up to the client to select a data source
@@ -152,9 +142,7 @@ Let us look at some elements of the code:
 
 * Note that **this code is not very efficient and that copying large files would be painfully slow**. We will see later that is is much better to read/write blocks of bytes in a single read operation, or to use buffered streams.
 
-
-
-```
+```java
 package ch.heigvd.res.samples.io;
 
 import java.io.File;
@@ -199,15 +187,11 @@ public class FileDuplicator {
 
 ### <a name="BinaryVsCharacterIOs"></a>4. Binary- vs Character-Oriented IOs
 
-[![](images/01/binary-sweets.jpg)](http://www.flickr.com/photos/dade_f/7110106731/)
-
 If you browse through the [java.io](http://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html) package, you will notice two parallel class hierarchies:
 
 * On one hand, you will see a set of classes extending the `InputStream` and `OutputStream` abstract classes. These classes are used to read and write **binary data**. In other words, if you are writing an application that deals with images or sounds, then you will be happy to use these classes that will **process raw data**, **without doing any conversion**.
 
 * On the other hand, you will see a set of classes extending the `Reader` and `Writer` abstract classes. These are used to read and write characters. In other words, if you are writing an application that deals with text data, then you will be happy to use these classes that will perform **conversions between raw data (bytes) and characters (in a particular encoding)**.
-
-[![](images/01/alphabet-soup.jpg)](http://www.flickr.com/photos/bean/322616749/)
 
 What does that mean? If you think about it, computers do not have a notion of character. They know about bytes, in other words about sequences of 8 bits. In order to manage text data, we have to agree on a particular **character encoding system**. The encoding system defines a correspondance between, on one hand, bit patterns and, on the other hand, characters. ASCII is a well-known character encoding system, which originally used 7 bits to represent characters. Here are a few examples for how bit patterns are mapped to characters in ASCII:
 
@@ -229,13 +213,7 @@ Unicode is actually not a character encoding system. When you have a code point,
 
 Sounds complicated? Well, it is a bit. Have a look at this [page](http://www.fileformat.info/info/unicode/char/42/index.htm). It will show you how the same character is represented in Unicode and in different encoding systems.
 
-[![](images/01/unicode.jpg)](http://www.flickr.com/photos/svensson/40467662/)
-
-
 ### <a name="MightyFilterClasses"></a>5. The Mighty Filter Classes
-
-
-[![](images/01/matrioska.jpg)](http://www.flickr.com/photos/agfrg/4693609597/)
 
 If you browse the `java.io` package, you will encounter 4 interesting classes: `FilterInputStream`, `FilterOutputStream`, `FilterReader` and `FilterWriter`. When you think about these classes, think about the **Decorator design pattern**. Think about **matriochkas** (poupées russes).
 
@@ -248,8 +226,6 @@ The role of these classes is to allow you to add behavior to a stream, in other 
   * Secondly, you would override the various `write()` methods implemented by the `FilterWriter` class. This is where you would get rid of the the hated characters, before calling the `write()` method in the `super` class.
 
 ### <a name="PerformanceAndBuffering"></a>6. Performance and Buffering
-
-[![](images/01/car.jpg)](http://www.flickr.com/photos/fireflite59/6129719816/)
 
 In the Java IO, 4 classes use this filtering mechanism:
 
@@ -273,7 +249,7 @@ To improve the situation, a common technique is to use **buffering** (and this c
 
 That is pretty much what the `BufferedXXX` classes are doing. They manage an internal buffer for you (you don't really see or interact with this buffer), which means that even if you write a loop that reads data byte by byte, then each byte is read from the buffer and not from the original source. In order to use a BufferedInputStream, you wrap one around an existing source:
 
-```
+```java
 public void processInputStream(InputStream is) {
 
   // I don't know to which source "is" is connected. It is also possible that is is already
@@ -296,8 +272,6 @@ public void processInputStream(InputStream is) {
 Using a `BufferedOutputStream` or a `BufferedWriter` to send data towards a sink follows the same logic. **There is however one more thing to be aware of**. Since the bytes or characters that you produce transit via a buffer, there will be a delay until they are actually pushed towards the sink. Sometimes, you will want to influence this delay and to push content ***right now***. That is something that you can do with the `flush()` method defined in the classes.
 
 ### <a name="ShitHappens"></a>7. Shit Happens: Dealing with IO Exceptions
-
-[![](images/01/cutcable.jpg)](http://www.flickr.com/photos/lanier67/5661780397/)
 
 When dealing with IOs, you will be interacting with external systems and components and you will quickly realize that **the environment is unreliable and that many things can go wrong**. Think about reading a corrupted file, think about a faulty hard drive. Think about loosing your network connection or seeing a remote client suddently cut the connection while you are reading the data it is sending you.
 
