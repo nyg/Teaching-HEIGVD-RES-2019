@@ -24,7 +24,7 @@ Why does it matter and why do we study that in this course?
 
 * The first reason is simply that network programming ***is*** IO programming. A network program, whether it is a server or client, spends a lot of time reading and writing bytes. These bytes are encapsulated in IP packets and travel across the network. But as we will see later in the course, reading bytes from the network or reading bytes from a file is not really different. So, what we will learn in the first lecture will be very helpful when we start writing applications that use TCP or UDP via the Socket API.
 
-* The second reason is that many network programs need to interact with the local file system. Have you ever thought about what happens when your web browser fetches a static html page? Well, the server on the other side opens a file, reads its content and sends it back to your browser. That shows that the web server is processing IOs in two ways (exchanging data with the file system and exchanging data with your browser). Again, what we will study in this first lecture will be useful later, for instance when we decide to implement our own HTTP server.
+* The second reason is that many network programs need to interact with the local file system. Have you ever thought about what happens when your web browser fetches a static HTML page? Well, the server on the other side opens a file, reads its content and sends it back to your browser. That shows that the web server is processing IOs in two ways (exchanging data with the file system and exchanging data with your browser). Again, what we will study in this first lecture will be useful later, for instance when we decide to implement our own HTTP server.
 
 More specifically, here are the objectives of the lecture:
 
@@ -135,7 +135,7 @@ Let us look at some elements of the code:
 
 * Once the streams have been opened, the logic is very simple. We use a loop to consume all bytes, one by one, from the input stream. Each time that we read a byte, we write it immediately to the output stream. We can see that the `read()` method returns an int. This value is -1 if the end of the stream has been reached. Otherwise, it has a value between 0 and 255 (we are reading a single byte).
 
-* Note that **this code is not very efficient and that copying large files would be painfully slow**. We will see later that is is much better to read/write blocks of bytes in a single read operation, or to use buffered streams.
+* Note that **this code is not very efficient and that copying large files would be painfully slow**. We will see later that it is much better to read/write blocks of bytes in a single read operation, or to use buffered streams.
 
 ```java
 package ch.heigvd.res.samples.io;
@@ -209,7 +209,7 @@ The role of these classes is to allow you to add behavior to a stream, in other 
 
 * Let's imagine that **you hate the letter 'u'**. Each time that you work with a Writer, whether it is to write characters to a file or to send characters to a network server, you would like every occurrence of this letter to be **automatically removed from the stream**.
 * While the logic is fairly simple (it is only a character comparison condition), **you don't want to repeat it over and over**. Also, you might one day realize that you love the letter 'u' but now hate the letter 'm'. That day, you don't want to have to go through all your codebase to reflect your change of heart and would like to **do the change in a single place**.
-* The FilterWriter class is what you need to solve your problem. Here is what you would use it:
+* The `FilterWriter` class is what you need to solve your problem. Here is how you would use it:
   * Firstly, you would create a class named `CensorshipWriter` that extends `FilterWriter`.
   * Secondly, you would override the various `write()` methods implemented by the `FilterWriter` class. This is where you would get rid of the the hated characters, before calling the `write()` method in the `super` class.
 
