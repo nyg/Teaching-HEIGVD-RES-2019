@@ -40,6 +40,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/02-FileIOExample/FileIOExample) is the example for manipulations of files, streams and adapters
 
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/03-CharacterIODemo/CharacterIODemo) is the example for character encodings
+- [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-Java-IO) is the repo for the lab, which we will work on during weeks 3 and 4
 
 
 
