@@ -127,7 +127,7 @@ To illustrate these basic concepts, let us consider a very simple example. The c
 
 Let us look at some elements of the code:
 
-* We see that we use 4 classes from the `java.io` package. That is where you will find all standard interfaces and classes for doing simple and sophisticated tasks around IOs. **Spend some time to browse through the javadoc reference** (<http://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html>). Being aware that some classes exist will prevent you from reinventing the wheel!
+* We see that we use 4 classes from the `java.io` package. That is where you will find all standard interfaces and classes for doing simple and sophisticated tasks around IOs. **Spend some time to browse through the javadoc reference** (<https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html>). Being aware that some classes exist will prevent you from reinventing the wheel!
 
 * The `File` class is not used directly for reading and writing data. It is used to do file system operations, such as checking whether a file with a specific name exists or not. In this example, it would not be stricly required (as an alternative, we could pass the file name directly to the `FileInputStream` and `FileOutputStream` constructors).
 
