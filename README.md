@@ -5,12 +5,13 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Upcoming deadlines
 
-- **Sunday, March 3rd, 23:00 (strict): everybody must have**:
-  - added at least 3 beers, with tests, and submitted at least 3 PRs (with a green light on GitHub)
-  - added enough beers and submitted enough PRs to really master the GitHub workflow
-  - be able to explain what is maven and how to run it from the command line
-  - be able to explain what is project Lombok
-  - filled out this Google [form](https://goo.gl/forms/z4bsuOchWphZfj8V2).
+**Sunday, March 17th, 23:00 (strict): everybody must have**:
+
+- implemented the project, so that all tests are green
+- submitted a PR on GitHub
+- have the structure of the project and the role of all classes in mind, to be able to quickly extend it with a new functionality
+- be ready to execute the project, know where to find the output files
+- submitted this Google form
 
 ## General links
 
@@ -25,13 +26,23 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 
 
-## Week 2: Java IO part 1 (intro + buffered IOs)
+## ~~Week 2: Java IO part 1 (intro + buffered IOs)~~
 
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/01-JavaIOs.pdf) are the slides
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/lectures/01-Lecture1-JavaIOs.md) are the lecture notes
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/01-BufferedIOBenchmark/BufferedIOBenchmark) is the project used to present the impact of buffering on performance
 
-## Week 3
+
+
+## Week 3: Java IO part 2 (decorator pattern + encodings)
+
+* Same slides and lecture notes as in week 2
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/02-FileIOExample/FileIOExample) is the example for manipulations of files, streams and adapters
+
+- [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/03-CharacterIODemo/CharacterIODemo) is the example for character encodings
+- [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-Java-IO) is the repo for the lab, which we will work on during weeks 3 and 4
+
+
 
 ## Week 4
 
@@ -66,6 +77,18 @@ This is where you will find lecture notes, slides and some of the examples prese
 ~~**Sunday, February 24th: everybody must have**:~~
 
 - setup GitHub (with SSH), forked and cloned the "chill" project
+
 - setup maven and been able to build "chill" on the command line
+
 - setup IDEA (with Lombok project)
+
 - either successfully added one beer (with a unit test and a production class) and submitted a PR or filed an issue in the upstream server to precisely describe what has not worked
+
+
+~~**Sunday, March 3rd, 23:00 (strict): everybody must have**:~~
+
+- added at least 3 beers, with tests, and submitted at least 3 PRs (with a green light on GitHub)
+- added enough beers and submitted enough PRs to really master the GitHub workflow
+- be able to explain what is maven and how to run it from the command line
+- be able to explain what is project Lombok
+- filled out this Google [form](https://goo.gl/forms/z4bsuOchWphZfj8V2).
