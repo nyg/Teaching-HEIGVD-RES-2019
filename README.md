@@ -11,7 +11,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 - submitted a PR on GitHub
 - have the structure of the project and the role of all classes in mind, to be able to quickly extend it with a new functionality
 - be ready to execute the project, know where to find the output files
-- submitted this Google form
+- submitted [this Google form](https://goo.gl/forms/yz9uPwZHVIShXvFk2)
 
 ## General links
 
