@@ -34,7 +34,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 
 
-## Week 3: Java IO part 2 (decorator pattern + encodings)
+## ~~Week 3: Java IO part 2 (decorator pattern + encodings)~~
 
 * Same slides and lecture notes as in week 2
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/02-FileIOExample/FileIOExample) is the example for manipulations of files, streams and adapters
@@ -44,7 +44,14 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 
 
-## Week 4
+## Week 4: TCP programming
+
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/02-TcpProgramming.pdf) are the slides
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/05-DumbHttpClient/DumbHttpClient) is an example of a simple TCP client (which does NOT implement the HTTP spec)
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/04-StreamingTimeServer/StreamingTimeServer) is an example of a simple TCP server (streams current time)
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/07-TcpServers/TcpServers) is an example of a multi-threaded TCP server (with workers)
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/06-PresenceApplication/PresenceApplication) is an example of a client-server application (presence)
+* **Make sure that you have a working Wireshark on your machine!**
 
 ## Week 5
 
