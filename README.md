@@ -67,8 +67,9 @@ This is where you will find lecture notes, slides and some of the examples prese
 ## Week 5: introduction to Docker
 
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/03-Docker.pdf) are the slides
-* [Here](Teaching-HEIGVD-RES-2019-Exercise-Calculator) is the repo for the protocol design exercise
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Exercise-Calculator) is the repo for the protocol design exercise
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-Docker-SimpleJavaServer) is the repo with the TCP server in Docker demo
+* [Here](https://goo.gl/forms/JaEU6hp5oMJTDRx22) is the link for the "sanity check" Google Form
 
 ## Week 6
 
