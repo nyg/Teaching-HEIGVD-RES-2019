@@ -12,19 +12,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This is a very simple program, which main objective is to show that you can
- * observe very significant performance differences, depending on you implement
- * IO processing. 
- * 
+ * This is a very simple program, whose main objective is to show that you can
+ * observe very significant performance differences, depending on how you implement
+ * IO processing.
+ *
  * Running the program allows you to compare both the WRITING and the READING of
  * bytes to the local file system. Different methods are compared: processing bytes
  * one by one, processing bytes in blocks, using buffered streams or not.
- * 
+ *
  * @author Olivier Liechti
  */
 public class BufferedIOBenchmark {
 
 	static final Logger LOG = Logger.getLogger(BufferedIOBenchmark.class.getName());
+	public static final int BLOCK_SIZE_A = 4096;
+	public static final int BLOCK_SIZE_B = 2048;
+	public static final int BLOCK_SIZE_C = 1024;
 	private final Timer timer;
 
 	/**
@@ -81,14 +84,14 @@ public class BufferedIOBenchmark {
 		}
 		LOG.log(Level.INFO, "  > Done in {0} ms.", timer.takeTime());
 	}
-	
+
 	/**
 	 * This method produces bytes on the passed stream (the method does not know this stream is buffered or not)
 	 * Depending on the strategy, the method either writes bytes one by one OR in chunks (the size of the chunk
 	 * is passed in parameter)
-	 */ 
+	 */
 	private void produceDataToStream(OutputStream os, IOStrategy ioStrategy, long numberOfBytesToWrite, int blockSize) throws IOException {
-		// If the strategy dictates to write byte by byte, then it's easy to write the loop; but let's just hope that our client has 
+		// If the strategy dictates to write byte by byte, then it's easy to write the loop; but let's just hope that our client has
 		// given us a buffered output stream, otherwise the performance will be really bad
 		if ((ioStrategy == IOStrategy.ByteByByteWithBufferedStream) || (ioStrategy == IOStrategy.ByteByByteWithoutBufferedStream)) {
 			for (int i = 0; i < numberOfBytesToWrite; i++) {
@@ -162,10 +165,10 @@ public class BufferedIOBenchmark {
 	 * This method consumes bytes on the passed stream (the method does not know this stream is buffered or not)
 	 * Depending on the strategy, the method either reads bytes one by one OR in chunks (the size of the chunk
 	 * is passed in parameter). The method does not do anything with the read bytes, except counting them.
-	 */ 
+	 */
 	private void consumeDataFromStream(InputStream is, IOStrategy ioStrategy, int blockSize) throws IOException {
 		int totalBytes = 0;
-		// If the strategy dictates to write byte by byte, then it's easy to write the loop; but let's just hope that our client has 
+		// If the strategy dictates to write byte by byte, then it's easy to write the loop; but let's just hope that our client has
 		// given us a buffered output stream, otherwise the performance will be really bad
 		if ((ioStrategy == IOStrategy.ByteByByteWithBufferedStream) || (ioStrategy == IOStrategy.ByteByByteWithoutBufferedStream)) {
 			int c;
@@ -183,7 +186,7 @@ public class BufferedIOBenchmark {
 				totalBytes += bytesRead;
 			}
 		}
-		
+
 		LOG.log(Level.INFO, "Number of bytes read: {0}", new Object[]{totalBytes});
 	}
 
@@ -198,30 +201,30 @@ public class BufferedIOBenchmark {
 
 		LOG.log(Level.INFO, "");
 		LOG.log(Level.INFO, "*** BENCHMARKING WRITE OPERATIONS (with BufferedStream)", timer.takeTime());
-		bm.produceTestData(IOStrategy.BlockByBlockWithBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 500);
-		bm.produceTestData(IOStrategy.BlockByBlockWithBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 50);
-		bm.produceTestData(IOStrategy.BlockByBlockWithBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 5);
+		bm.produceTestData(IOStrategy.BlockByBlockWithBufferedStream, NUMBER_OF_BYTES_TO_WRITE, BLOCK_SIZE_A);
+		bm.produceTestData(IOStrategy.BlockByBlockWithBufferedStream, NUMBER_OF_BYTES_TO_WRITE, BLOCK_SIZE_B);
+		bm.produceTestData(IOStrategy.BlockByBlockWithBufferedStream, NUMBER_OF_BYTES_TO_WRITE, BLOCK_SIZE_C);
 		bm.produceTestData(IOStrategy.ByteByByteWithBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 0);
 
 		LOG.log(Level.INFO, "");
 		LOG.log(Level.INFO, "*** BENCHMARKING WRITE OPERATIONS (without BufferedStream)", timer.takeTime());
-		bm.produceTestData(IOStrategy.BlockByBlockWithoutBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 500);
-		bm.produceTestData(IOStrategy.BlockByBlockWithoutBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 50);
-		bm.produceTestData(IOStrategy.BlockByBlockWithoutBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 5);
+		bm.produceTestData(IOStrategy.BlockByBlockWithoutBufferedStream, NUMBER_OF_BYTES_TO_WRITE, BLOCK_SIZE_A);
+		bm.produceTestData(IOStrategy.BlockByBlockWithoutBufferedStream, NUMBER_OF_BYTES_TO_WRITE, BLOCK_SIZE_B);
+		bm.produceTestData(IOStrategy.BlockByBlockWithoutBufferedStream, NUMBER_OF_BYTES_TO_WRITE, BLOCK_SIZE_C);
 		bm.produceTestData(IOStrategy.ByteByByteWithoutBufferedStream, NUMBER_OF_BYTES_TO_WRITE, 0);
 
 		LOG.log(Level.INFO, "");
 		LOG.log(Level.INFO, "*** BENCHMARKING READ OPERATIONS (with BufferedStream)", timer.takeTime());
-		bm.consumeTestData(IOStrategy.BlockByBlockWithBufferedStream, 500);
-		bm.consumeTestData(IOStrategy.BlockByBlockWithBufferedStream, 50);
-		bm.consumeTestData(IOStrategy.BlockByBlockWithBufferedStream, 5);
+		bm.consumeTestData(IOStrategy.BlockByBlockWithBufferedStream, BLOCK_SIZE_A);
+		bm.consumeTestData(IOStrategy.BlockByBlockWithBufferedStream, BLOCK_SIZE_B);
+		bm.consumeTestData(IOStrategy.BlockByBlockWithBufferedStream, BLOCK_SIZE_C);
 		bm.consumeTestData(IOStrategy.ByteByByteWithBufferedStream, 0);
-		
+
 		LOG.log(Level.INFO, "");
 		LOG.log(Level.INFO, "*** BENCHMARKING READ OPERATIONS (without BufferedStream)", timer.takeTime());
-		bm.consumeTestData(IOStrategy.BlockByBlockWithoutBufferedStream, 500);
-		bm.consumeTestData(IOStrategy.BlockByBlockWithoutBufferedStream, 50);
-		bm.consumeTestData(IOStrategy.BlockByBlockWithoutBufferedStream, 5);
+		bm.consumeTestData(IOStrategy.BlockByBlockWithoutBufferedStream, BLOCK_SIZE_A);
+		bm.consumeTestData(IOStrategy.BlockByBlockWithoutBufferedStream, BLOCK_SIZE_B);
+		bm.consumeTestData(IOStrategy.BlockByBlockWithoutBufferedStream, BLOCK_SIZE_C);
 		bm.consumeTestData(IOStrategy.ByteByByteWithoutBufferedStream, 0);
 	}
 
