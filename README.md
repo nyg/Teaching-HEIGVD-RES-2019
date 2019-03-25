@@ -60,7 +60,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Week 6: TCP programming
 
-[Here] is the link to the repo for the challenge
+[Here](<https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Challenge-2>) is the link to the repo for the challenge
 
 
 
