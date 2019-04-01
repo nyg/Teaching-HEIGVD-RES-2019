@@ -5,11 +5,11 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Upcoming deadlines
 
-* Monday, April 1st
-  * Have completed the exercise in pairs, with a working client-server pair
-  * Be ready to do a demo
-  * Have submitted [this form](https://goo.gl/forms/u4nITKt5LeVAJURm1) with the URL of your repo (no need to fork, you can create one from scratch)
-  * Note: there is no grade for this lab; however, you really need to work in order to save time during the upcoming lab + in the future challenges
+* **Monday, April 15th**
+  - Mid-term written test (everything including SMTP)
+* **Monday, April 15th and Thursday, April 18th**
+  * Have completed the SMTP lab, schedule a demo slot and be ready to do a demo (we will pick random groups, as time permits)
+  * Have filled out [this form](https://forms.gle/q4C5gRwWM11r8cQN6).
 
 ## General links
 
@@ -58,13 +58,14 @@ This is where you will find lecture notes, slides and some of the examples prese
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-Docker-SimpleJavaServer) is the repo with the TCP server in Docker demo
 * [Here](https://goo.gl/forms/JaEU6hp5oMJTDRx22) is the link for the "sanity check" Google Form
 
-## Week 6: TCP programming
+## ~~Week 6: TCP programming~~
 
 [Here](<https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Challenge-2>) is the link to the repo for the challenge
 
+## Week 7: SMTP
 
-
-## Week 7
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/04-SMTP.pdf) are the slides
+* [Here]() is a link to the repo for the lab
 
 ## Week 8
 
@@ -117,21 +118,31 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ~~**Monday, March 25th 2019**~~
 
-- Be ready for a challenging week
-- Understand and be able to explain the following concepts:
-  - What is Docker? How are containers different from virtual machines?
-  - What is the difference between the Docker CLI and the Docker engine? Why can we say that Docker is based on a client-server architecture?
-  - What is the difference between a Docker image and a Docker container?
-  - How does one create a Docker image? How does one create a Docker  container?
-  - What is Dockerhub?
-  - Be able to explain what happens when you type `docker run -it —rm alpine /bin/sh`. Be able to explain the meaning of every argument in this command.
-  - Be able to explain how port mapping works in Docker. Be able to explain how to use the `-p xx:yy`parameter when using `docker run`.
-- Have been able to run the [demo 1](https://github.com/SoftEng-HEIGVD/Teaching-Docker-SimpleJavaServer) on one's laptop during the week.
-- Be able to perform the following operations
-  - Write a Dockerfile to define an image that contains a TCP server written in Java
-  - Run multiple containers from the same image
-  - Obtain the IP address assigned to the each of these containers
-  - Send requests to the TCP server running in the containers, with `nc`or `telnet`
-  - Log into a running container and explore the file system
+Be ready for a challenging week
+
+Understand and be able to explain the following concepts:
+- What is Docker? How are containers different from virtual machines?
+- What is the difference between the Docker CLI and the Docker engine? Why can we say that Docker is based on a client-server architecture?
+- What is the difference between a Docker image and a Docker container?
+- How does one create a Docker image? How does one create a Docker  container?
+- What is Dockerhub?
+- Be able to explain what happens when you type `docker run -it —rm alpine /bin/sh`. Be able to explain the meaning of every argument in this command.
+- Be able to explain how port mapping works in Docker. Be able to explain how to use the `-p xx:yy`parameter when using `docker run`.
+
+Have been able to run the [demo 1](https://github.com/SoftEng-HEIGVD/Teaching-Docker-SimpleJavaServer) on one's laptop during the week.
+
+Be able to perform the following operations
+- Write a Dockerfile to define an image that contains a TCP server written in Java
+- Run multiple containers from the same image
+- Obtain the IP address assigned to the each of these containers
+- Send requests to the TCP server running in the containers, with `nc`or `telnet`
+- Log into a running container and explore the file system
+
+~~**Monday, April 1st**~~
+
+- Have completed the exercise in pairs, with a working client-server pair
+- Be ready to do a demo
+- Have submitted [this form](https://goo.gl/forms/u4nITKt5LeVAJURm1) with the URL of your repo (no need to fork, you can create one from scratch)
+- Note: there is no grade for this lab; however, you really need to work in order to save time during the upcoming lab + in the future challenges
 
 ## 
