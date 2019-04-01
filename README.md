@@ -65,7 +65,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 ## Week 7: SMTP
 
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/04-SMTP.pdf) are the slides
-* [Here]() is a link to the repo for the lab
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-SMTP) is a link to the repo for the lab
 
 ## Week 8
 
