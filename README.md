@@ -6,7 +6,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 ## Upcoming deadlines
 
 * **Monday, April 15th and Thursday, April 18th**
-  * Have completed the SMTP lab, schedule a demo slot and be ready to do a demo (we will pick random groups, as time permits)
+  * Have completed the SMTP lab, ~~scheduled a demo slot and~~ be ready to do a demo (we will pick random groups, as time permits)
   * Have filled out [this form](https://forms.gle/q4C5gRwWM11r8cQN6).
 * **Monday, April 29th**
   - Mid-term written test (everything including SMTP)
