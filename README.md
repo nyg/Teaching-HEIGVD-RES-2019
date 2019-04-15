@@ -5,11 +5,9 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Upcoming deadlines
 
-* **Monday, April 15th and Thursday, April 18th**
-  * Have completed the SMTP lab, schedule a demo slot and be ready to do a demo (we will pick random groups, as time permits)
-  * Have filled out [this form](https://forms.gle/q4C5gRwWM11r8cQN6).
 * **Monday, April 29th**
-  - Mid-term written test (everything including SMTP)
+  - Mid-term written test (everything including UDP)
+  - Make sure to study the slides AND the lecture notes. Also review the labs.
 
 ## General links
 
@@ -62,16 +60,20 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 [Here](<https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Challenge-2>) is the link to the repo for the challenge
 
-## Week 7: SMTP
+## ~~Week 7: SMTP~~
 
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/04-SMTP.pdf) are the slides
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-SMTP) is a link to the repo for the lab
 
-## Week 8
+## ~~Week 8: SMTP lab~~
 
-## Week 9
+## Week 9: UDP
 
-## Week 10
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/05-UdpProgramming.pdf) are the slides
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-Docker-UDP-sensors) is a link to the "thermometer repo"
+* There is no formal assignment this week (nothing to submit). Use the lab sessions to study the "thermometers" code and test it on your machine. You may also want to write either a thermometer or a station in Java, to see that it is possible for Java and Javascript programs to talk to each other over UDP.
+
+## Week 10: Mid-term test + UDP lab
 
 ## Week 11
 
@@ -145,4 +147,8 @@ Be able to perform the following operations
 - Have submitted [this form](https://goo.gl/forms/u4nITKt5LeVAJURm1) with the URL of your repo (no need to fork, you can create one from scratch)
 - Note: there is no grade for this lab; however, you really need to work in order to save time during the upcoming lab + in the future challenges
 
-## 
+~~**Monday, April 15th**~~
+
+- Have completed the SMTP lab and be ready to do a demo (we will pick random groups, as time permits)
+- Have filled out [this form](https://forms.gle/q4C5gRwWM11r8cQN6).
+
