@@ -69,6 +69,10 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Week 9: UDP
 
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/05-UdpProgramming.pdf) are the slides
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-Docker-UDP-sensors) is a link to the "thermometer repo"
+* There is no formal assignment this week (nothing to submit). Use the lab sessions to study the "thermometers" code and test it on your machine. You may also want to write either a thermometer or a station in Java, to see that it is possible for Java and Javascript programs to talk to each other over UDP.
+
 ## Week 10: Mid-term test + UDP lab
 
 ## Week 11
