@@ -63,7 +63,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 ## ~~Week 7: SMTP~~
 
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/04-SMTP.pdf) are the slides
-* [Here]() is a link to the repo for the lab
+* [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-SMTP) is a link to the repo for the lab
 
 ## ~~Week 8: SMTP lab~~
 
@@ -148,4 +148,3 @@ Be able to perform the following operations
 - Have completed the SMTP lab and be ready to do a demo (we will pick random groups, as time permits)
 - Have filled out [this form](https://forms.gle/q4C5gRwWM11r8cQN6).
 
-## 
