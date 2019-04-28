@@ -14,7 +14,6 @@
    2. [Additional Resources](#ResourcesAdditional)
 4. [What Should I Know For The Test And The Exam?](#Exam)
 
-
 ## <a name="Objectives"></a>Objectives
 
 The goal of this lecture is to **continue our study of network programming** and to explain how developers can write **client and server programs** that use the **UDP protocol** to communicate with each other. 
@@ -30,9 +29,6 @@ Last but not least, you should be **aware of what it means to use an unreliable 
 In the previous lecture, we have looked at the TCP protocol and seen as it offers **one way to transport application-level messages** across the network (in a reliable fashion). We have seen how the telephone system is a good analogy for how TCP works. In this lecture, we will look at **another transport protocol**, namely **UDP**. Here, it is the **postal system** that provides a useful analogy.
 
 When you write and send letters, **you do not need to establish a synchronous connection** with your peers. You drop your letters in a mailbox, they are taken care of by the system and at some point they *should* be delivered at destination. 
-
-[![](images/03/returnaddress.jpg)](http://www.flickr.com/photos/orlando-herb/4835564098/)
-
 
 In the postal system, every letter is handled independantly and has all the **information required for the routing** (i.e. the elements of the destination address). Furthermore, the letter should also mention the **sender address**. When you receive a letter, this is very useful because it gives you the information you need if you want to **send back a response**. UDP applies the same logic: datagrams contain both the source and destination coordinates, which can be used by the recipients to prepare their replies.
 
@@ -54,12 +50,11 @@ What does that mean concretely? What does the application developer need to do w
   
   * **If the same command is sent multiple times** (because the client wrongly thinks that it has been lost) **and is processed multiple times** by the server, then **the counter will have a value greater than 10**. To avoid this problem, the server has to keep track of the commands that it has already processed and acknowledged. To be precise, it has to keep track of [non-idempotent](http://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning) commands. That is where *stop-and-go* and *sliding window* algorithms are providing you with a proven solution. Have a look at the Trivial File Transfer Protocol ([TFTP](http://tools.ietf.org/html/rfc1350)) specification for an example of a reliable application-level protocol built on top of UDP. Also have a look at a [flaw](http://en.wikipedia.org/wiki/Sorcerer%27s_Apprentice_Syndrome) in the first design of this protocol.
 
-
 ### <a name="SocketAPI"></a>2. UDP in the Socket API
 
 The **Socket API** provides functions for using UDP in application-level code. When using the C API, the first thing to be aware of is that it is when creating the socket that one specifies whether we want to use TCP or UDP. Compare the following two instructions:
 
-```
+```c
 // If we want to use TCP
 int sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 
@@ -69,7 +64,7 @@ int sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
 Once we have a socket, we can use it both to **receive** and to **send** datagrams. In C, the developer does not use a special data structure that would represent a datagram. He uses the `sendto()` and `rcvfrom()` functions and passes byte arrays as parameters. Unlike with TCP, no connection has been established before making the calls to send and receive data. For that reason, when calling the `sendto()` function, the developer **needs to specify a destination address and a destination port**. Similarly, when using the `rcvfrom()` function, the developer has to pass a data structure, where he will **find the source address and port** after the call. 
 
-```
+```c
 // Let's send a datagram. The payload is the content of buffer and the destination
 // address is specified in sa
 bytes_sent = sendto(sock, buffer, strlen(buffer), 0,(struct sockaddr*)&sa, sizeof sa);
@@ -82,8 +77,6 @@ recsize = recvfrom(sock, (void *)buffer, sizeof(buffer), 0, (struct sockaddr *)&
 ### <a name="UsingTheSocketApi"></a>3. So… How Do Clients and Servers Use UDP?
 
 ### 3.1. Messaging Patterns
-
-[![](images/03/arrows.jpg)](http://www.flickr.com/photos/yourpaldave/379687848/)
 
 Different messaging patterns can be implemented with UDP:
 
@@ -103,7 +96,7 @@ Different messaging patterns can be implemented with UDP:
 
 In **Java**, the API provides an **explicit abstraction** for dealing with datagrams: the `DatagramPacket` class. Developers use it both when sending and receiving UDP datagrams from their programs. Here are the important methods defined in the class, as defined in the [Javadoc](http://docs.oracle.com/javase/7/docs/api/java/net/DatagramPacket.html) documentation:
 
-```
+```java
 // Returns the IP address of the machine to which this datagram
 // is being sent or from which the datagram was received.
 public InetAddress getAddress();
@@ -119,14 +112,14 @@ public byte[] getData();
 
 Furthermore, datagrams are sent and received via sockets that are instances of the [`DatagramSocket`](http://docs.oracle.com/javase/7/docs/api/java/net/DatagramSocket.html) class. Notice that the class provides several constructors. Let us compare two of them:
 
-```
+```java
 public DatagramSocket() throws SocketException;
 public DatagramSocket(int port) throws SocketException;
 ```
+
 In the first constructor, we do not specify any port number. This is fine if we use the socket for **sending** datagrams. What will happen is that the system will assign us a **random UDP port** and use it as the **source port value** in the UDP header. If the application on the other side of the network wants to send us a response, it will be able retrieve and use this value as the **destination port value** in the response datagrams.
 
 In the second constructor, we **specify a port number**. This means that we will be waiting for UDP datagams that have this value in the destination port of the datagram header. This approach is typically used to write a server according to an application-level protocol specification. **The specification defines the standard port** to be used by servers and clients. It is how client and servers can find each other to initiate an interaction.
-
 
 ### <a name="UnicastBroadcastMulticast"></a>4. Unicast, Broadcast and Multicast
 
@@ -144,7 +137,7 @@ Broadcast and multicast transmission models are very useful to implement certain
 
 In order to broadcast a UDP datagram to all nodes on the local network, simply use the `255.255.255.255` broadcast address in the destination address of your datagrams. Note that the socket has to be set in a mode where it agrees to send broadcast datagrams (to avoid accidental broadcast storms). Here is how you would do it in Java:
 
-```
+```java
 // Sending a message to all nodes on the local network
 
 socket = new DatagramSocket();
@@ -153,14 +146,12 @@ socket.setBroadcast(true);
 byte[] payload = "Java is cool, everybody should know!!".getBytes();
 
 DatagramPacket datagram = new DatagramPacket(payload, payload.length, InetAddress.getByName("255.255.255.255"), 4411);
-
 socket.send(datagram);
-
 ```
 
 And here is how you would do it in Node.js:
 
-```
+```javascript
 // Sending a message to all nodes on the local network
 
 var dgram = require('dgram');
@@ -176,12 +167,11 @@ message = new Buffer(payload);
 s.send(message, 0, message.length, 4411, "255.255.255.255", function(err, bytes) {
   console.log("Sending ad: " + payload + " via port " + s.address().port);
 });
-
 ```
 
 On the other side, if you implement an application that should listen for and process broadcasted datagrams, you do not need to do anything special. Just bind a datagram socket on the application-specific port. Here is what you do in Java:
 
-```
+```java
 // Listening for broadcasted messages on the local network
 
 DatagramSocket socket = new DatagramSocket(port);
@@ -197,12 +187,11 @@ while (true) {
 		Logger.getLogger(BroadcastListener.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 	}
 }
-
 ```
 
 And here is what you do in Node.js
 
-```
+```javascript
 // Listening for broadcasted messages on the local network
 
 var s = dgram.createSocket('udp4');
@@ -228,7 +217,7 @@ In order to use multicast instead of broadcast in your programs (which is strong
 
 Here is Java code for subscribing to a multicast group:
 
-```
+```java
 private InetAddress multicastGroup;
 int port;
 MulticastSocket socket;
@@ -247,7 +236,7 @@ public MulticastSubscriber(int port, InetAddress multicastGroup) {
 
 And here is the Node.js equivalent:
 
-```
+```js
 var dgram = require('dgram');
 var s = dgram.createSocket('udp4');
 
