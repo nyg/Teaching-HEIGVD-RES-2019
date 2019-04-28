@@ -256,12 +256,14 @@ There are **at least two methods for supporting service discovery** in a dynamic
 
 1. **The first one consists for the service providers to periodically advertise their presence**. Imagine a printer that would publish a UDP datagram on a multicast group every 5 seconds. A laptop that would be looking for available printers would create a datagram socket, join the multicast group (effectively expressing its interest in printers) and would thus receive the presence datagrams. The presence datagrams should contain the contact details (i.e the data that is required for the laptop to initiate an interaction with the printer and use its printing service).
 
+2. **The other one works in other direction.** It consists for the printers to join a multicast group and for the laptops to send datagrams containing a message with the semantic *"I am looking for a printing service"*. When receiving these requests, the printers should send back a message informing the laptop that they are available and giving the required contact details.
 
 ## <a name="Resources"></a>Resources</a>
 
 ### <a name="ResourcesMustRead"></a>MUST read
 
 * This [section](http://docs.oracle.com/javase/tutorial/networking/datagrams/index.html) of the Java tutorial, which explains how to use UDP in Java.
+* This [section](http://www.beej.us/guide/bgnet/html/single/bgnet.html#sendtorecv) and this [section](http://www.beej.us/guide/bgnet/html/single/bgnet.html#datagram) of Beej's Guide to Network Programming.
 
 ### <a name="ResourcesAdditional"></a>Additional resources
 
