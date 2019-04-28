@@ -246,23 +246,16 @@ s.bind(protocol.PROTOCOL_PORT, function() {
 });
 ```
 
-
-
 ### <a name="ServiceDiscoveryProtocols"></a>5. Service Discovery Protocols
-
-[![](images/03/water.jpg)](http://www.nytimes.com/2008/10/09/us/09water.html?scp=1&sq=waterford%20possessed&st=cse&_r=0)
 
 As we have seen before, one particularity of broadcast and multicast data transmission is that **the sender of a message does not need to know who the consumer(s) of that message will be**. In the case of broadcast, the sender knows that *all nearby nodes* will receive it. In the case of multicast, the sender knows that *all nodes that have expressed their interest* will receive it.
 
 That is a property that is very useful in situations, where **you want to find out whether some sort of service provider is *around* and *available*** and where you are requesting for *contact information*. As an analogy, think about what is happening when a pregnant woman breaks water in an airplane. Most likely, someone will shout "Is there a doctore on board!?" (i.e. the request for a *delivery* service will be addressed to all passengers). If one or more doctors are present, they will manifest themselves and an interaction between the pregnant woman and one doctor will then be able to start.
 
-[![](images/03/pregnant.gif)]()
-
 There are **at least two methods for supporting service discovery** in a dynamic environment:
 
 1. **The first one consists for the service providers to periodically advertise their presence**. Imagine a printer that would publish a UDP datagram on a multicast group every 5 seconds. A laptop that would be looking for available printers would create a datagram socket, join the multicast group (effectively expressing its interest in printers) and would thus receive the presence datagrams. The presence datagrams should contain the contact details (i.e the data that is required for the laptop to initiate an interaction with the printer and use its printing service).
 
-2. **The other one works in other direction.** It consists for the printers to join a multicast group and for the printers to send datagrams containing a message with the semantic *"I am looking for a printing service"*. When receiving these requests, the printers should send back a message informing the laptop that they are available and giving the required contact details.
 
 ## <a name="Resources"></a>Resources</a>
 
@@ -270,33 +263,20 @@ There are **at least two methods for supporting service discovery** in a dynamic
 
 * This [section](http://docs.oracle.com/javase/tutorial/networking/datagrams/index.html) of the Java tutorial, which explains how to use UDP in Java.
 
-* This [section](http://www.beej.us/guide/bgnet/output/html/multipage/syscalls.html#sendtorecv) and this [section](http://www.beej.us/guide/bgnet/output/html/multipage/clientserver.html#datagram) of Beej's Guide to Network Programming.
-
-
 ### <a name="ResourcesAdditional"></a>Additional resources
 
 * The [COAP RFC](http://www.ietf.org/id/draft-ietf-core-coap-18.txt), which is an example for a protocol built on top UDP and which has reliability constraints. COAP is a protocol that was developed for Internet-of-Things (IoT) applications.
-
 * The [TFTP RVD](https://www.ietf.org/rfc/rfc1350.txt), which is an example for a simple file transfer protocol that uses a stop-and-go algorithm for reliability and datagram ordering.
-
 * Node.js [documentation](http://nodejs.org/api/dgram.html) on how to use datagram sockets.
-
-
 
 ## <a name="Exam"></a>What Should I Know For The Test and The Exam?
 
 Here is a **non-exhausive list of questions** that you can expect in the written tests and exams:
 
 * Explain the difference between unicast, broadcast and multicast transmission models.
-
 * Describe a situation where it is a good idea to broadcast datagrams on the local network.
-
 * Describe an application that makes use of multicast datagram distribution.
-
 * Write the Java code for a client-server pair, which communicate with each other with messages encapsulated in UDP datagrams.
-
 * Explain the notion of service discovery. Explain how you would specify a protocol allowing chat clients to discover available chat servers. Explain how you would implement it with multicast.
-
 * Is it possible to implement reliable application-level protocols on top of UDP? If no, explain why. If yes, explain how.
-
 * Give one reason why you would use UDP instead of TCP as a transport protocol for your application-level protocol.
