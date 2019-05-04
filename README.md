@@ -5,9 +5,9 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Upcoming deadlines
 
-* **Monday, April 29th**
-  - Mid-term written test (everything including UDP)
-  - Make sure to study the slides AND the lecture notes. Also review the labs.
+* **Monday, May 13th**
+  - Have finished the DockerOrchestra lab and have a personal GitHub repo (private or public) with the working solution.
+  - Have answered all the questions in the lab guidelines and be able to answer them.
 
 ## General links
 
@@ -73,19 +73,21 @@ This is where you will find lecture notes, slides and some of the examples prese
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-Docker-UDP-sensors) is a link to the "thermometer repo"
 * There is no formal assignment this week (nothing to submit). Use the lab sessions to study the "thermometers" code and test it on your machine. You may also want to write either a thermometer or a station in Java, to see that it is possible for Java and Javascript programs to talk to each other over UDP.
 
-## Week 10: Mid-term test + UDP lab
+## Week 10: Mid-term test + UDP lab (orchestra)
 
-## Week 11
+- [Here](<https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-Orchestra>) is the link to the lab guidelines
 
-## Week 12
+## Week 11: review of the mid-term test + UDP lab
 
-## Week 13
+## Week 12: HTTP (protocol)
 
-## Week 14
+## Week 13: HTTP (protocol)
 
-## Week 15
+## Week 14: HTTP (infrastructure)
 
-## Week 16
+## Week 15: HTTP (infrastructure)
+
+## Week 16: review + Q&A
 
 
 
@@ -151,4 +153,9 @@ Be able to perform the following operations
 
 - Have completed the SMTP lab and be ready to do a demo (we will pick random groups, as time permits)
 - Have filled out [this form](https://forms.gle/q4C5gRwWM11r8cQN6).
+
+~~**Monday, April 29th**~~
+
+- Mid-term written test (everything including UDP)
+- Make sure to study the slides AND the lecture notes. Also review the labs.
 
