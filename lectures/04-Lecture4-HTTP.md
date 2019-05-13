@@ -106,8 +106,6 @@ Now that we have a first sense of what HTTP messages look like, let us dig into 
 
 Having said that, there are two important points that you have to be aware and that we will discuss now. Firstly, while the HTTP protocol is stateless, many Web applications are not stateless. Secondly, the fact that HTTP is stateless does not mean that we have a different TCP connection for each request-reply exchange.
 
-
-
 #### <a name="WebAppsAreStateful"></a>3.1. The HTTP Protocol is Stateless, But Many Web Applications are NOT
 
 If you think about what you do with your web browser, this point about statelessness should be puzzling:
@@ -210,6 +208,7 @@ place using the Connection header field (section 14.10). Once a close
 has been signaled, the client MUST NOT send any more requests on that
 connection.
 ```
+
 **Source**: [Section 8](http://tools.ietf.org/html/rfc2616#section-8.1)
 
 One of the sources mentioned in the RFC is available [here](http://www.ibiblio.org/mdma-release/http-prob.html) and explains why the [slow start algorithm](http://en.wikipedia.org/wiki/Slow-start) used by TCP for [congestion control](http://tools.ietf.org/html/rfc5681) has a negative impact on HTTP 1.0 performance.
@@ -269,19 +268,18 @@ content negotiation
    representation of entities in any response can be negotiated
    (including error responses).
 ```
-**Source**: [Section 1.3](http://tools.ietf.org/html/rfc2616#section-1.3)
 
+**Source**: [Section 1.3](http://tools.ietf.org/html/rfc2616#section-1.3)
 
 #### <a name="ContentNegotiation"></a>4.2. Content Negotiation
 
 Content negotiation applies to resource representation and works on the following principle:
 
-  * When sending a request to get the representation of a given resource, **the client expresses its capabilities and preferences** (which partly depend on the capabilities and preferences of the end-users behind the client). For instance, it may say: my preference would be to receive a JSON representation of the resource, but I could also do something with an XML or plain text representation. Or it could say: my preference would be to receive a representation of this resource in french, but I could also deal with a representation in english or in german.
+* When sending a request to get the representation of a given resource, **the client expresses its capabilities and preferences** (which partly depend on the capabilities and preferences of the end-users behind the client). For instance, it may say: my preference would be to receive a JSON representation of the resource, but I could also do something with an XML or plain text representation. Or it could say: my preference would be to receive a representation of this resource in french, but I could also deal with a representation in english or in german.
   
-  * When the server processes the request, it will **try to do its best to satisfy the client**. However, not it will not be able to fulfill the first choice of the user. As the outcome is uncertain, the server will indicate what he has been able to do when sending back the response.
+* When the server processes the request, it will **try to do its best to satisfy the client**. However, not it will not be able to fulfill the first choice of the user. As the outcome is uncertain, the server will indicate what he has been able to do when sending back the response.
   
 In both cases, **content negotiation is achieved thanks to special headers**, which we will look at shortly when describing the syntax of HTTP requests and responses.
-
 
 ### <a name="HttpMessages"></a>5. HTTP Messages: Requests and Responses
 
@@ -332,7 +330,6 @@ Status-Line    = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
 * The message body may contain **binary data** (e.g. image), so it MUST NOT be read line by line.
 
 * The **protocol version** is indicated both in the request and in the response, on the first line.
-
 
 #### <a name="Methods"></a>5.2. Some Interesting Methods
 
@@ -488,8 +485,6 @@ Whether you are implementing a HTTP server or a HTTP client, you will need to pa
   * If you don't have any indication about the length of the message, then you have to assume that the process on the other side will close the TCP connection when it has sent all of the content (this is how HTTP 1.0 servers used to work). Therefore, you should read bytes until you detect the end of the stream.
   
   * The RFC also specifies a special case when the `multipart/byteranges` media type is used, but we will not discuss it here. The details are available in [Section 19.2](http://tools.ietf.org/html/rfc2616#section-19.2).
-  
-  
 
 ## <a name="Resources"></a>Resources</a>
 
@@ -518,16 +513,8 @@ Whether you are implementing a HTTP server or a HTTP client, you will need to pa
 Here is a **non-exhausive list of questions** that you can expect in the written tests and exams:
 
 * Write a complete HTTP request and a complete HTTP response. Explain the structure and the role of the different lines and of the different elements on each line.
-
 * Explain **how** and **why** TCP connections are handled differently in HTTP/1.0 and in HTTP/1.1.
-
 * Explain the notion of **content negotiation** in HTTP and illustrate it with an example (include an HTTP request and an HTTP response in your explanation).
-
 * What does it mean when we say that HTTP is a **stateless** protocol? Why is that sometimes a problem (give an example of an application where this is a problem) and what can be done about it?
-
 * Why is the **chunked transfer encoding** useful (what would be the problem if we did not have it?)? Explain what a client needs to do in order to parse a response that uses the chunked transfer encoding.
-
 * What are **cookies** in the context of the HTTP protocol? Explain why they are useful. Explain how they work at the protocol level (explain what the client and the server have to do, give examples of requests and responses).
-
-
-
