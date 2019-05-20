@@ -5,8 +5,8 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 ## Upcoming deadlines
 
-* Monday, May 20th: be able to write a simple HTTP client (pick your tools)
 * Monday, May 27th: be able to write a simple HTTP server (pick your tools)
+* Monday, June 10th 23:00: have completed the HTTP infra lab (Google form to follow)
 
 ## General links
 
@@ -17,15 +17,11 @@ This is where you will find lecture notes, slides and some of the examples prese
 * [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Chill) is the repo for the first assignment. Make sur to **fork** it, before cloning your fork on your machine.
 * [Here](https://www.youtube.com/playlist?list=PLfKkysTy70QaN-uez0K4UpSpVUbt8ETpk) is  the Youtube playlist that presents the first assignment material.
 
-
-
 ## ~~Week 2: Java IO part 1 (intro + buffered IOs)~~
 
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/slides/01-JavaIOs.pdf) are the slides
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/blob/master/lectures/01-Lecture1-JavaIOs.md) are the lecture notes
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/01-BufferedIOBenchmark/BufferedIOBenchmark) is the project used to present the impact of buffering on performance
-
-
 
 ## ~~Week 3: Java IO part 2 (decorator pattern + encodings)~~
 
@@ -34,8 +30,6 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019/tree/master/examples/03-CharacterIODemo/CharacterIODemo) is the example for character encodings
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-Java-IO) is the repo for the lab, which we will work on during weeks 3 and 4
-
-
 
 ## ~~Week 4: TCP programming~~
 
@@ -78,12 +72,15 @@ This is where you will find lecture notes, slides and some of the examples prese
 
 * Javascript 101 repo: <https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-Javascript-101>
 
-## Week 12: HTTP (protocol)
+## ~~Week 12: HTTP (protocol)~~
 
 - [Here](slides/06-HTTPProtocol.pdf) are the slides
 - [Guidelines](./lectures/http-in-practice.pdf) for practicing HTTP before the next challenge(s)
 
 ## Week 13: HTTP (protocol)
+
+- [Here](slides/06-HTTPProtocol.pdf) are the slides from last week, updated with the Host header description
+- [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-HTTPInfra) is the repo for the HTTP infra lab. The webcasts have been added to the RES 2019 playlist.
 
 ## Week 14: HTTP (infrastructure)
 
@@ -165,4 +162,8 @@ Be able to perform the following operations
 
 - Have finished the DockerOrchestra lab and have a personal GitHub repo (private or public) with the working solution.
 - Have answered all the questions in the lab guidelines and be able to answer them.
+
+~~**Monday, May 20th:**~~ 
+
+- be able to write a simple HTTP client (pick your tools)
 
