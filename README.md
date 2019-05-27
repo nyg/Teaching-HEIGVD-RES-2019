@@ -77,12 +77,14 @@ This is where you will find lecture notes, slides and some of the examples prese
 - [Here](slides/06-HTTPProtocol.pdf) are the slides
 - [Guidelines](./lectures/http-in-practice.pdf) for practicing HTTP before the next challenge(s)
 
-## Week 13: HTTP (protocol)
+## ~~Week 13: HTTP (protocol)~~
 
 - [Here](slides/06-HTTPProtocol.pdf) are the slides from last week, updated with the Host header description
 - [Here](https://github.com/SoftEng-HEIGVD/Teaching-HEIGVD-RES-2019-Labo-HTTPInfra) is the repo for the HTTP infra lab. The webcasts have been added to the RES 2019 playlist.
 
 ## Week 14: HTTP (infrastructure)
+
+- [Here](slides/07-WebInfrastructures.pdf) are the slides
 
 ## Week 15: HTTP (infrastructure)
 
