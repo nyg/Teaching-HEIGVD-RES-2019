@@ -6,7 +6,7 @@ This is where you will find lecture notes, slides and some of the examples prese
 ## Upcoming deadlines
 
 * Monday, May 27th: be able to write a simple HTTP server (pick your tools)
-* Monday, June 10th 23:00: have completed the HTTP infra lab (Google form to follow)
+* Monday, June 10th 23:00: have completed the HTTP infra lab (Google form is [here](https://forms.gle/8u5BoxWjZYxWci957))
 
 ## General links
 
