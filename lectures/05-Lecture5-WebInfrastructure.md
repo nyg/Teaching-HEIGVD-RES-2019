@@ -12,7 +12,6 @@
    1. [MUST read](#ResourcesMustRead)
    2. [Additional Resources](#ResourcesAdditional)
 
-
 ## <a name="Objectives"></a>Objectives
 
 Until now, we have focused on two aspects of the HTTP protocol (and of application-level protocols in general). Firstly, have looked at what **developers** need to do in order to implement protocols in client and server programs (how to use classes and methods for managing IOs, how to use the socket API, etc.). Secondly, we have looked at the protocol **specification** and at the rules that it defines (syntax and semantics of messages, connection and state management, etc.).
@@ -20,7 +19,6 @@ Until now, we have focused on two aspects of the HTTP protocol (and of applicati
 In this lecture, we will look at HTTP from another perspective, namely the **infrastructure** perspective. As you can imagine, a company running a service (whether this service is a content publication web site or a web application) on top of HTTP is unlikely to *just* install a single HTTP server and let it handle all the traffic. Think about the [CNN](http://www.cnn.com) web site or the [local e-commerce service](http://www.leshop.ch). **Because of various constraints (security, performance, availability, scalability), you can imagine that the infrastructure enabling these services is a bit more sophisticated than a single HTTP server running on a single machine directly accessible from the Internet.**
 
 The objective of this lecture is to **look at the building blocks of a typical web infrastructure** and to show how they can be put together and configured. In particular, we will look at the role of HTTP reverse proxies and show that they are useful for various reasons. Another objective of this lecture is to **introduce some modern virtualization and infrastructure management technologies**, which we will use to create a multi-nodes setup on our machines. We will explain how different technologies complement each other and use them in the lab.
- 
 
 ## <a name="Lecture"></a>Lecture
 
@@ -33,8 +31,6 @@ In this lecture, we will cover three topics:
 * We will then describe a typical web infrastructure and see how it consists of several nodes. In particular, we will describe the role of **reverse proxies** and of **load balancers**. We will explain that introducing these components in the infrastructure is a way to address several non-functional requirements (again, we will talk about scalability, availability, performance and security).
 
 * Finally, we will introduce three **virtualization** and **infrastructure management **technologies: **Virtual Box **(which you certainly already know), **Vagrant** (which makes it easier to work with Virtual Box in a repeatable way) and **Dockers** (which allows you to run lightweight containers in your Virtual Box VM). In the lab, we will use Dockers to create a web infrastructure with multiple nodes (reverse proxy, load balancer, web servers, application servers), all running on your machine.
-
-
 
 ### <a name="SystemicQualities"></a>2. Non-Functional Requirements, aka Systemic Qualities
 
@@ -78,9 +74,9 @@ To illustrate this important difference, let us consider the example of a photo 
   
 There are two general approaches to scalability: **vertical** and **horizontal** scalability:
 
-  * **Vertical scalability** means that the capacity of the system is increased by **adding resources to a single node**. Imagine that you have installed a database management system on a single server. If you decide to add more CPUs, more memory, more disks, more network interfaces to this server in order to adapt to a growing load, then you are scaling up your system vertically.
+* **Vertical scalability** means that the capacity of the system is increased by **adding resources to a single node**. Imagine that you have installed a database management system on a single server. If you decide to add more CPUs, more memory, more disks, more network interfaces to this server in order to adapt to a growing load, then you are scaling up your system vertically.
   
-  * **Horizontal scalability** means that the capacity of the system is increased by **adding more nodes** to the system. Imagine that you have installed a web application on a single server. If you decide to install the same web application on multiple servers and find a way to distribute the load between all of these similar nodes, then you are scaling up your system horizontally.
+* **Horizontal scalability** means that the capacity of the system is increased by **adding more nodes** to the system. Imagine that you have installed a web application on a single server. If you decide to install the same web application on multiple servers and find a way to distribute the load between all of these similar nodes, then you are scaling up your system horizontally.
 
 *Note that these two approaches are not mutually exclusive and in many situations, they are combined for different parts of the infrastructure.*  
    
@@ -135,11 +131,9 @@ As these scenarios suggest, the processes that you put in place are very importa
 * *If we run on our own hardware, do we have a stock of spare parts?*
 * *Do we have a disaster recovery plan?*
 
-
 #### <a name=""></a>2.3. Security
 
 Security is another systemic quality and one that has many different aspects. Just think about the needs that you may express around confidentiality, authentication, authorization, traceability, protection against denial-of-service attacks. A coverage of these questions goes beyond the scope of this lecture, but we will later show that introducing a reverse proxy in a web infrastructure contributes to making it more secure.
-
 
 ### <a name="ReverseProxies"></a>3. HTTP Reverse Proxies and Load Balancers
 
@@ -179,8 +173,6 @@ Here are some points about the infrastructure:
 
 * If, in addition to the routing function, you need the load balancing function, you will find documentation for apache http [here](http://httpd.apache.org/docs/2.4/mod/mod_proxy_balancer.html) and for nginx [here](http://nginx.org/en/docs/http/load_balancing.html).
 
-
-
 ### <a name="Virtualization"></a>4. Virtualization and Provisioning Technologies
 
 The previous diagram, which shows a typical web hosting infrastructure, focuses on the logical system architecture. In other words, it does not mean that every rectangle is implemented on a dedicated hardware server. That might be the case in some cases, but in others some rectangles might be implemented as virtual machines, lightweight OS containers or event simple virtual hosts.
@@ -189,7 +181,6 @@ Nowadays, many infrastructures are built on top of a public or private cloud env
 
 In this lecture, and in the associated lab, we will work with some associated technologies. Note that some of them are very new (and not yet recommended for a usage in production). We will use these technologies not only because they are becoming part of the standard *toolbox* that any IT engineer should master, but also because it makes it easier to observe consistent behavior across heterogenous host machines and operating systems.
 
-
 ### <a name=""></a>4.1. Virtual Box: *OS Virtualization*
 
 >  VirtualBox is a powerful x86 and AMD64/Intel64 virtualization product for enterprise as well as home use. Not only is VirtualBox an extremely feature rich, high performance product for enterprise customers, it is also the only professional solution that is freely available as Open Source Software under the terms of the GNU General Public License (GPL) version 2.
@@ -197,7 +188,6 @@ In this lecture, and in the associated lab, we will work with some associated te
 You are probably already familiar with the first tool that we will use, namely Virtual Box. Virtual Box is one of the virtualization technologies (VMWare is another one), which allows you to run a virtual machine with a *guest operating system* on top your *host operating system*. In other words, Virtual Box allows you to run a Linux virtual machine on top of your Windows laptop. Or to run a Windows virtual machine on top of your Mac OS laptop.
 
 Virtual Box has the advantage to be open source and free. It also supports a wide range of guest host and guest operating systems.
-
 
 ### <a name=""></a>4.2. Vagrant: *Development environments made easy*
 
@@ -212,7 +202,6 @@ This has probably worked fine, but you may have been through the same lengthy pr
 Furthermore, if at some point you had deploy what you had running in a virtual machine running on your laptop in a cloud environment (such as Amazon EC2), then you had to redo the setup once again.
 
 Vagrant is an attempt to address this problem. It gives you a way to declare what are the steps required to build a virtual machine with a given setup. You start by doing a `vagrant init`, editing a special file named `Vagrantfile` and doing a `vagrant up`. This will download what Vagrant calls a "box", ask Virtual Box to start the resulting virtual machine, go through basic configuration steps, initiate the provisioning process (which can be done in various ways, including with Docker). At this point, you will be able to do a `vagrant ssh` to connect to you virtual machine from the command line (you should not expect to work with a GUI, event if it is [possible](http://docs.vagrantup.com/v2/virtualbox/configuration.html)).
-
 
 ### <a name=""></a>4.3. Docker: *Lightweight containers for your apps*
 
@@ -231,4 +220,3 @@ When using Docker, you have a command line utility that you use to manage your i
 > When the container is exited, the state of the file system and its exit value is preserved. You can start, stop, and restart a container. The processes restart from scratch (their memory state is not preserved in a container), but the file system is just as it was when the container was stopped.
 
 > You can promote a container to an Image with docker commit. Once a container is an image, you can use it as a parent for new containers.
-

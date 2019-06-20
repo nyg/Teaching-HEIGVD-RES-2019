@@ -23,12 +23,9 @@
    2. [Additional Resources](#ResourcesAdditional)
 * [What Should I Know For The Test And The Exam?](#Exam)
 
-
 ## <a name="Objectives"></a>Objectives
 
-
 ## <a name="Lecture"></a>Lecture
-
 
 ### <a name="Introduction"></a>1. Introduction
 
@@ -313,6 +310,7 @@ Response       = Status-Line               ; Section 6.1
                  
 Status-Line    = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
 ```
+
 **Source**: [Section 4.1](http://tools.ietf.org/html/rfc2616#section-4.1), [Section 5](http://tools.ietf.org/html/rfc2616#section-4.1) and [Section 6](http://tools.ietf.org/html/rfc2616#section-6).
 
 **Here are some comments about these definitions:**
@@ -500,7 +498,6 @@ Whether you are implementing a HTTP server or a HTTP client, you will need to pa
   * [Section 8.1.2](http://tools.ietf.org/html/rfc2616#section-8.1.2)
   * [Section 19.3](http://tools.ietf.org/html/rfc2616#section-19.3)
   * [Section 19.4.6](http://tools.ietf.org/html/rfc2616#section-19.4.6)
-  
 
 ### <a name="ResourcesAdditional"></a>Additional resources
 
